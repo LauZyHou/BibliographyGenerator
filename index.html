@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>BibliographyGenerator</title>
+</head>
+
+<body>
+  <h2>参考文献自动生成器</h2>
+  <div id="tab">
+    <ul>
+      <li class="on">图书/专著</li>
+      <li class="off">期刊文章</li>
+      <li class="off">论文集</li>
+      <li class="off">学位论文</li>
+      <li class="off">报告</li>
+      <li class="off">报纸</li>
+      <li class="off">国际/国家标准</li>
+      <li class="off">论文集中析出的文献</li>
+      <li class="off">专利</li>
+      <li class="off">电子文献</li>
+      <li class="off">其它</li>
+    </ul>
+    <!-- 图书/专著 -->
+    <div class="show">
+      题目：<input type="text" style="width:400px;">
+      <br>
+      作者：<input type="text">
+      <br>
+      出版地：<input type="text">
+      <br>
+      出版社：<input type="text">
+      <br>
+      出版年份：<input type="number">
+      <br>
+      起止页码：<input type="text" size="2" maxlength="4"> - <input type="text" size="2" maxlength="4">
+      <br>
+      <button type="button" onclick="gen()" style="width:300px;">生成</button>
+      <button type="button" onclick="clear()" style="width:50px;">清空</button>
+    </div>
+    <!-- 期刊文章 -->
+    <div class="hide">
+      喵喵喵
+    </div>
+    <!-- 论文集 -->
+    <div class="hide"></div>
+    <!-- 学位论文 -->
+    <div class="hide"></div>
+    <!-- 报告 -->
+    <div class="hide"></div>
+    <!-- 报纸 -->
+    <div class="hide"></div>
+    <!-- 国际/国家标准 -->
+    <div class="hide"></div>
+    <!-- 论文集中析出的文献 -->
+    <div class="hide"></div>
+    <!-- 专利 -->
+    <div class="hide"></div>
+    <!-- 电子文献 -->
+    <div class="hide"></div>
+    <!-- 其它 -->
+    <div class="hide"></div>
+  </div>
+
+  <div id="result">
+    <input type="text">
+    <br>
+    <button style="width:400px;">复制结果</button>
+  </div>
+
+  开源仓库：https://github.com/LauZyHou/BibliographyGenerator
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+
+    //---------------------------[点击生成按钮]---------------------------
+    gen = () => {
+      console.log("okk");
+    }
+
+    //---------------------------[JS选项卡切换]---------------------------
+    var myTab = document.getElementById("tab");    //整个div
+    var myUl = myTab.getElementsByTagName("ul")[0];//一个节点
+    var myLi = myUl.getElementsByTagName("li");    //数组
+    var myDiv = myTab.getElementsByTagName("div"); //数组
+    for (var i = 0; i < myLi.length; i++) {
+      myLi[i].index = i;
+      myLi[i].onclick = function () {
+        for (var j = 0; j < myLi.length; j++) {
+          myLi[j].className = "off";
+          myDiv[j].className = "hide";
+        }
+        this.className = "on";
+        myDiv[this.index].className = "show";
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #336699;
+    }
+
+    body {
+      text-align: center;
+    }
+
+    /* ---------------------------[JS选项卡切换]--------------------------- */
+
+    #tab {
+      width: 1170px;
+      padding: 5px;
+      height: 250px;
+      margin: 20px;
+    }
+
+    #tab ul {
+      list-style: none;
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 2px #C88 solid;
+    }
+
+    #tab ul li {
+      background: #FFF;
+      cursor: pointer;
+      float: left;
+      list-style: none;
+      height: 29px;
+      line-height: 29px;
+      padding: 0px 10px;
+      margin: 0px 10px;
+      border: 1px solid #BBB;
+      border-bottom: 2px solid #C88;
+    }
+
+    #tab ul li.on {
+      border-top: 2px solid gray;
+      border-bottom: 2px solid #FFF;
+    }
+
+    #tab div {
+      height: 200px;
+      width: 1150px;
+      line-height: 24px;
+      border-top: none;
+      padding: 1px;
+      border: 1px solid #336699;
+      padding: 10px;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    /* ---------------------------[结果]--------------------------- */
+    #result {
+      width: 1170px;
+      padding: 5px;
+      height: 50px;
+      margin-left: 20px;
+      text-align: center;
+    }
+
+    #result>input {
+      width: 100%;
+    }
+  </style>
+</body>
+
+</html>
