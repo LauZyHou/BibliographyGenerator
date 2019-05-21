@@ -10,6 +10,12 @@
 ## 运行展示
 ![](./README_PIC/1.png)
 
+## 项目构建
+```
+npm install
+npm start
+```
+
 ## 参考
 [打造第一个Electron app](https://electronjs.org/docs/tutorial/first-app)
 

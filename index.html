@@ -41,7 +41,25 @@
     </div>
     <!-- 期刊文章 -->
     <div class="hide">
-      喵喵喵
+      题目：<input type="text" style="width:400px;">
+      <br>
+      作者：<input type="text">
+      <br>
+      来源期刊：<input type="text">
+      <br>
+      出版地：<input type="text">
+      <br>
+      出版社：<input type="text">
+      <br>
+      出版年份：<input type="number">
+      <br>
+      卷号：<input type="number">
+      期号：<input type="number">
+      <br>
+      起止页码：<input type="text" size="2" maxlength="4"> - <input type="text" size="2" maxlength="4">
+      <br>
+      <button type="button" onclick="gen()" style="width:300px;">生成</button>
+      <button type="button" onclick="clear()" style="width:50px;">清空</button>
     </div>
     <!-- 论文集 -->
     <div class="hide"></div>
@@ -123,7 +141,7 @@
     #tab {
       width: 1170px;
       padding: 5px;
-      height: 250px;
+      height: 280px;
       margin: 20px;
     }
 
@@ -153,7 +171,7 @@
     }
 
     #tab div {
-      height: 200px;
+      height: 230px;
       width: 1150px;
       line-height: 24px;
       border-top: none;
